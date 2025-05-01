@@ -1,0 +1,41 @@
+:root {
+    --ivory-mist: #dfdfd6;        
+    --obsidian-night: #202122;   
+    --abyssal-blue: #112432;      
+  
+    --emerald-depths: #0d5938;     
+    --neon-verdure: #2de193;      
+    --midnight-moss: #03160e;      
+  
+    --royal-cobalt: #022164;       
+    --azure-pulse: #0348dd;       
+    --celestial-haze: #9bbafd;     
+  
+    --gilded-sun: #e0bc2e;        
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    overflow-x: hidden;
+}
+  
+body{
+    background-color: var(--obsidian-night);
+    width: 100vw;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+.page-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
