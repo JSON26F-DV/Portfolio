@@ -6,10 +6,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>'
     <link rel="stylesheet" href="../scr/css/typography.css">
+    <link rel="stylesheet" href="../scr/css/style.css">
+    <style>
+        :root {
+            --ivory-mist: #dfdfd6;
+            --obsidian-night: #202122;
+            --abyssal-blue: #112432;
+
+            --emerald-depths: #0d5938;
+            --neon-verdure: #2de193;
+            --midnight-moss: #03160e;
+
+            --royal-cobalt: #022164;
+            --azure-pulse: #0348dd;
+            --celestial-haze: #9bbafd;
+
+            --gilded-sun: #e0bc2e;
+        }
+
+        .main-section {
+            width: max(90%, 90vh);
+            height: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            border: 2px solid black;
+        }
+
+        .contact {
+            height: 50vh;
+            padding: 50px;
+            border-radius: 50px;
+            background-color: rgb(14 14 14 / 1);
+            ;
+        }
+
+        .contact .contact-about,
+        .contact-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            border: 2px solid black;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .contact-form form>input {
+            padding: 13px 15px;
+            display: block;
+            border: 1px solid var(--ivory-mist);
+            border-radius: 2px;
+            outline: none;
+            background: transparent;
+            font-size: 21px;
+            margin-bottom: 24px;
+        }
+    </style>
 </head>
 
 <body>
-
+    <header></header>
+    <main>
+        <section class="page-container">
+            <div class="main-section"></div>
+        </section>
+        <section class="page-container"></section>
+        <section class="page-container">
+            <div class="main-section contact">
+                <div class="contact-about">
+                    <h1>hello</h1>
+                </div>
+                <div class="contact-form">
+                    <form class="form-group" action="" method="post">
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="../scr/js/app.js"></script>
 </body>
 
 </html>

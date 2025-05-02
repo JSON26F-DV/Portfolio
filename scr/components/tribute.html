@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/typography.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .heroes-container {
+            display: grid;
+            width: min(100vw, 1440px);
+            height: min(350vh, 3860px);
+            border: 2px solid black;
+            padding: 50px;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-areas:
+                "bio1 bio2 bio2"
+                "bio3 bio3 bio4"
+                "bio5 bio6 bio6";
+        }
+
+
+        .bio-section {
+            display: flex;
+            flex-direction: column;
+            padding: 50px;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .profile-pic {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* border: 2px solid black; */
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .heroes-content .info {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        h2,
+        h5,
+        p {
+            opacity: 0;
+            transition: all 0.6s ease-out;
+
+        }
+
+        .heroes-content .pic {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .right-text {
+            text-align: right;
+        }
+
+        .slide-down {
+            animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+        }
+
+        @keyframes slide-in-top {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .quotes {
+            animation: slide-in-quote 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+        }
+
+        @keyframes slide-in-quote {
+            0% {
+                transform: translateY(-60px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+
+            }
+        }
+
+        .Xaxis {
+            animation: slide-left 1s ease-in-out forwards;
+        }
+
+        @keyframes slide-left {
+            0% {
+                transform: translateX(-60px);
+                filter: blur(5px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="page-container"></section>
+    <section class="heroes-container">
+        <div class="heroes-content profile-pic" style="grid-area:bio1">
+            <div class="pic" style="background-color: rebeccapurple;">hello</div>
+            <div class="pic" style="background-color: red;"> annm</div>
+        </div>
+        <div class="heroes-content bio-section" style="grid-area:bio2">
+
+            <div class="info">
+                <h2>Jason Verzosa Begornia</h2>
+                <h5>Hi again, Im jason current studying Bachelor of Science Technology</h5>
+                <p><i>"Tralalero tralala!"</i></p>
+            </div>
+            <div class="info">
+                <h2>Douglas MacArtor</h2>
+                <h5>Legendary General who commanded Allied forces in the Pacific during WWII. he oversaw Japan's
+                    post-war
+                    reconstruction but was controversially removed by Truman during the Korean War for insubordination.
+                </h5>
+                <p><i>"I Shall Return!"</i></p>
+            </div>
+
+        </div>
+        <div class="heroes-content bio-section right-text" style="grid-area:bio3">
+            <div class="info">
+                <h2>Don Bries</h2>
+                <h5>is a self-proclaimed R1 Racing Legend— won the 2018–19 FIA PHILIPPINES Endurance Championship and is
+                    a
+                    two-time winner of the 24 Hours of <br> Le Mans with Toyota. Traffic Violator-</h5>
+                <p><i>"Takot ako sa Kalabaw at buwaya."</i></p>
+            </div>
+            <div class="info">
+                <h2>Ventzy</h2>
+                <h5>
+                    <strong><i>"The Mozart of Mobile Legends" </i></strong> Child Prodigy, Self-proclaimed M2 World
+                    Champion,
+                    Top Global Suyuo and MPL Session King, he joined BREN Esports. In 2019, he represented The
+                    Philippines
+                    in
+                    the 30th Southeast Asian Games alongside Pheww, Kenji, Haze claiming the gold
+                    medal.
+                </h5>
+                <p><i>"Emel"</i></p>
+            </div>
+        </div>
+        <div class="heroes-content profile-pic" style="grid-area:bio4"></div>
+        <div class="heroes-content profile-pic" style="grid-area:bio5"></div>
+        <div class="heroes-content bio-section" style="grid-area:bio6">
+            <h2>Papi Jenwin</h2>
+            <h5> Was a Historian, a writer, a traveler, a nature lover, a philosopher, a dancer, a singer, a
+                storyteller, a curious soul, a seeker of truth, an artist of words, a passionate observer of
+                life, a quiet thinker, a collector of memories, <br> a dreamer of distant lands, a lover of silence,
+                lover
+                boy, good boy, a guardian of
+                heritage,
+                a voice for the forgotten, a believer in beauty, and a heart that wandered but never strayed from
+                purpose.💘</h5>
+            <p><i>"Mwah mwah tsup tsup"</i></p>
+        </div>
+
+        <script>
+            function FontsAnimate(element, classFx) {
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add(classFx);
+                        }
+                    })
+                }, {
+                    threshold: 1
+                });
+
+                const elements = document.querySelectorAll(element);
+                elements.forEach(el => {
+                    observer.observe(el);
+                });
+            }
+
+            FontsAnimate("h2", "Xaxis")
+            FontsAnimate("h5", "slide-down")
+            FontsAnimate("p", "quotes")
+
+        </script>
+    </section>
+</body>
+
+</html>
