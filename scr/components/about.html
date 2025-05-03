@@ -32,19 +32,17 @@
         }
 
         .profile-card {
-            padding: 10px;
-            width: min(100vw, 1440px);
+            padding: 20px;
+            width: clamp(375px, 100vw, 1440px);
             height: min(100vh, 720px);
             display: flex;
         }
 
-        .box {
+        .JSON26F {
             display: flex;
-            /* background-color: red; */
-            /* border: 2px solid black; */
         }
 
-        .box1 {
+        .profile_header {
             display: flex;
             flex-direction: column;
             flex: 1;
@@ -52,31 +50,36 @@
             gap: 5px;
         }
 
-        .box1 .profile {
+        .profile_header .profile {
             flex: 3.1;
             background-image: url(../../public/images/heroes/profilepic.jpg);
             background-position: center;
             background-attachment: cover;
             background-repeat: repeat;
-            /* border: 2px solid black; */
             border-radius: 25px;
             padding: 20px;
             animation-delay: 0.2s;
+            z-index: 2;
         }
 
 
-        .box1 .bio {
+        .profile_header .bio {
             flex: 1;
-            /* border: 2px solid black; */
             display: flex;
             justify-content: center;
             flex-direction: column;
             border-radius: 25px;
             padding: 20px;
             background-color: var(--midnight-moss);
+            border-top: 2px solid rgba(255, 255, 255, 0.05);
+            border-left: 2px solid rgba(255, 255, 255, 0.05);
+            box-shadow:
+                0 0 20px rgba(255, 255, 255, 0.05),
+                inset 0 0 10px rgba(255, 255, 255, 0.03);
+            transition: box-shadow 0.3s ease;
         }
 
-        .box2 {
+        .main_feature {
             flex: 2;
             display: grid;
             padding: 5px;
@@ -100,13 +103,18 @@
             position: relative;
         }
 
+        .skills li {
+            margin-left: 10px;
+            line-height: 23px;
+            list-style: none;
+        }
+
         .skills span {
             position: absolute;
             right: 0;
         }
 
         .aboutme {
-            /* border: 2px solid black; */
             border-radius: 25px;
             padding: 20px;
             display: flex;
@@ -115,6 +123,13 @@
             background-color: var(--midnight-moss);
             animation-delay: 0.5s;
             opacity: 0;
+            z-index: -1;
+            border-top: 2px solid rgba(255, 255, 255, 0.05);
+            border-left: 2px solid rgba(255, 255, 255, 0.05);
+            box-shadow:
+                0 0 20px rgba(255, 255, 255, 0.05),
+                inset 0 0 10px rgba(255, 255, 255, 0.03);
+            transition: box-shadow 0.3s ease;
         }
 
         h3 {
@@ -131,6 +146,12 @@
             z-index: -1;
             position: relative;
             overflow: hidden;
+            border-top: 2px solid rgba(255, 255, 255, 0.05);
+            border-left: 2px solid rgba(255, 255, 255, 0.05);
+            box-shadow:
+                0 0 20px rgba(255, 255, 255, 0.05),
+                inset 0 0 10px rgba(255, 255, 255, 0.03);
+            transition: box-shadow 0.3s ease;
         }
 
         .clock {
@@ -143,20 +164,26 @@
             position: absolute;
             top: 90px;
             animation-delay: 0.5s;
-            /* border: 2px solid black; */
+
         }
 
         .stack {
-            /* border: 2px solid black; */
             border-radius: 25px;
             padding: 20px;
             background-color: var(--midnight-moss);
             opacity: 0;
-            animation-delay: 1.2s;
+            animation-delay: 0.9s;
+            border-top: 2px solid rgba(255, 255, 255, 0.05);
+            border-left: 2px solid rgba(255, 255, 255, 0.05);
+            box-shadow:
+                0 0 20px rgba(255, 255, 255, 0.05),
+                inset 0 0 10px rgba(255, 255, 255, 0.03);
+            transition: box-shadow 0.3s ease;
+            overflow: hidden;
         }
 
 
-        .box3 {
+        .article {
             flex: 0.8;
             display: flex;
             flex-direction: column;
@@ -164,7 +191,7 @@
             gap: 5px;
         }
 
-        .box3 .links {
+        .article .links {
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -172,6 +199,12 @@
             border-radius: 25px;
             padding: 10px;
             background-color: var(--midnight-moss);
+            border-top: 2px solid rgba(255, 255, 255, 0.05);
+            border-left: 2px solid rgba(255, 255, 255, 0.05);
+            box-shadow:
+                0 0 20px rgba(255, 255, 255, 0.05),
+                inset 0 0 10px rgba(255, 255, 255, 0.03);
+            transition: box-shadow 0.3s ease;
         }
 
         .links .main {
@@ -215,29 +248,56 @@
             align-items: center;
         }
 
-        .box3 .recent {
+        .article .recent {
             flex: 1.5;
-            border: 2px solid black;
+            /* border: 2px solid black; */
             border-radius: 25px;
             padding: 20px;
             background-color: var(--midnight-moss);
-            animation-delay: 1s;
+            animation-delay: 0.6s;
+            border-top: 2px solid rgba(255, 255, 255, 0.05);
+            border-left: 2px solid rgba(255, 255, 255, 0.05);
+            box-shadow:
+                0 0 20px rgba(255, 255, 255, 0.05),
+                inset 0 0 10px rgba(255, 255, 255, 0.03);
+            transition: box-shadow 0.3s ease;
         }
 
-        .box3 .message {
+        .recent .proj {
+            margin-top: 20px;
+            margin-left: 20px;
+            border-left: 2px solid snow;
+            padding: 20px;
+        }
+
+        .proj span {
+            margin-right: auto;
+        }
+
+        .article .message {
             flex: 1.5;
-            border: 2px solid black;
             border-radius: 25px;
             padding: 20px;
+            background-image: url(../../public/images/heroes/message.jpg);
+            background-position: bottom;
+            background-size: cover;
+            background-repeat: no-repeat;
             background-color: var(--midnight-moss);
-            animation-delay: 1.2s;
+            animation-delay: 0.8s;
+            border-top: 2px solid rgba(255, 255, 255, 0.05);
+            border-left: 2px solid rgba(255, 255, 255, 0.05);
+            box-shadow:
+                0 0 20px rgba(255, 255, 255, 0.05),
+                inset 0 0 10px rgba(255, 255, 255, 0.03);
+            transition: box-shadow 0.3s ease;
         }
 
         .jaysus {
-            width: inherit;
-            height: inherit;
+            width: clamp(300px, 100vw, 1440px);
+            height: min(100vh, 720px);
             background-image: url(../../public/images/backgrounds/papajaysus3.png);
             background-size: cover;
+            background-repeat: no-repeat;
             position: sticky;
             bottom: 0;
             left: 0;
@@ -245,29 +305,74 @@
             animation-delay: 1s;
         }
 
+
         @media (min-width: 601px) and (max-width: 1024px) {
             .profile-card {
+                padding: 10px;
                 display: grid;
                 height: 200vh;
                 grid-template-columns: 1fr 1.5fr;
                 grid-template-rows: repeat(2, 1fr);
                 grid-template-areas:
-                    "box1 box3"
-                    "box2 box2";
+                    "profile_header article"
+                    "main_feature main_feature";
             }
 
+            .davincky {
+                display: none;
+            }
 
+            #intersect {
+                display: none;
+            }
         }
 
         @media (max-width: 600px) {
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow-x: hidden;
+            }
+
             .profile-card {
+                padding: 10px;
                 display: flex;
                 flex-direction: column;
                 height: 300vh;
             }
 
-            .box {
+
+            .JSON26F {
                 flex: 1;
+            }
+
+
+            .stack h3 {
+                margin-bottom: 20px;
+            }
+
+            .davincky {
+                display: none;
+            }
+
+            #intersect {
+                display: none;
+            }
+
+            .bio small {
+                font-size: 16px;
+            }
+
+            .recent h3 {
+                margin-bottom: 40px;
+            }
+
+            .recent .proj {
+                display: flex;
+                flex-direction: column;
+                align-self: center;
+                margin-top: 20px;
             }
         }
 
@@ -316,12 +421,49 @@
                 transform: translateY(0);
             }
         }
+
+        .scroll-container {
+            display: flex;
+            justify-self: center;
+            align-self: self-end;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 95%;
+            box-sizing: border-box;
+        }
+
+        .scroll-track {
+            display: inline-block;
+            animation: scroll-left 32s linear infinite;
+        }
+
+        .box {
+            display: inline-block;
+            width: 75px;
+            height: 75px;
+            margin: 10px;
+            font-size: 2rem;
+            line-height: 100px;
+            text-align: center;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="profile-card">
-        <div class="box box1" style="grid-area: box1;">
+        <div class="JSON26F profile_header" style="grid-area: profile_header;">
             <div class="profile tilt-in-left-1"></div>
             <div class="bio">
                 <h3>AKA</h3>
@@ -332,7 +474,7 @@
                     illo animi possimus explicabo veritatis</small>
             </div>
         </div>
-        <div class="box box2" style="grid-area: box2;">
+        <div class="JSON26F main_feature" style="grid-area: main_feature;">
             <div class="aboutme slide-top" style="grid-area: about;">
                 <H3>I'M JASON</H3>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam ipsam voluptatibus, in at quam
@@ -350,15 +492,108 @@
             </div>
             <div class="time">
                 <div class="clock move-up">
-                    <h3>8:30 <br> PM</h3>
+                    <h3 id="local-time"></h3>
                     <small>Current local time</small>
                 </div>
             </div>
             <div class="stack slide-bottom" style="grid-area: stack;">
                 <H3>STACK</H3>
+                <div class="scroll-container">
+                    <div class="scroll-track">
+                        <div class="box fb">
+                            <img src="../../public/images/icons/frameworks/html.png" width="75px" alt="">
+                        </div>
+                        <div class="box"><img src="../../public/images/icons/frameworks/css.png" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/js.png" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/github.png" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/git-icon.png" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/bootstrap.png" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/tailwind.svg" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/logo.png" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/gsap.png" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/three-js-icon.svg" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/figma.png" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/photoshop.png" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/premiere-pro.png" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/capcut-icon.png" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/chat.png" width="75px" alt="">
+                        </div>
+                        <div class="box fb">
+                            <img src="../../public/images/icons/frameworks/html.png" width="75px" alt="">
+                        </div>
+                        <div class="box"><img src="../../public/images/icons/frameworks/css.png" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/js.png" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/github.png" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/git-icon.png" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/bootstrap.png" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/tailwind.svg" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/logo.png" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/gsap.png" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/three-js-icon.svg" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/figma.png" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/photoshop.png" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/premiere-pro.png" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/capcut-icon.png" width="75px" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="../../public/images/icons/frameworks/chat.png" width="75px" alt="">
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="box box3" style="grid-area: box3;">
+        <div class="JSON26F article" style="grid-area: article;">
             <div class="links">
                 <div class="main">
                     <div class="link lnk">
@@ -385,6 +620,11 @@
             </div>
             <div class="recent slide-left">
                 <h3>PROJECT.</h3>
+                <div class="proj">
+                    <h5>Pixs </h5>
+                    <span><small>2025 - ♾</small></span><br>
+                    <small>Web design</small>
+                </div>
             </div>
             <div class="message slide-left"></div>
         </div>
@@ -409,13 +649,31 @@
             Your browser does not support the video tag.
         </video>
     </div>
+
     <script>
+        function updateTime() {
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+
+            hours = hours % 12 || 12;
+
+            const timeString = `${hours}:${minutes}<br>${ampm}`;
+            document.getElementById("local-time").innerHTML = timeString;
+        }
+
+        updateTime();
+        setInterval(updateTime, 60000); 
     </script>
+
     <script>
         const element = document.getElementById("intersect");
+
         const observer = new IntersectionObserver((Entries) => {
             Entries.forEach(en => {
                 if (en.isIntersecting) {
+                    document.querySelector(".jaysus").style.backgroundImage = "url('../../public/images/backgrounds/papajaysus.png')";
                     const vid = document.querySelector(".name")
 
                     vid.style.display = "flex";
@@ -436,12 +694,13 @@
                             document.querySelector(".davincky").style.display = "none";
                         }, 500);
 
-                    }, 17000);
+                    }, 15000);
                 }
             });
         })
         observer.observe(element);
     </script>
+
     <script>
         document.querySelector('.name').addEventListener('wheel', function (e) {
             if (e.ctrlKey) {

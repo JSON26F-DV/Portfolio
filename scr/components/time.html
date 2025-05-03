@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #121212;
+            font-family: sans-serif;
+        }
+
+        .scroll-container {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100vw;
+            box-sizing: border-box;
+            border-top: 2px solid #444;
+            border-bottom: 2px solid #444;
+        }
+
+        .scroll-track {
+            display: inline-block;
+            animation: scroll-left 20s linear infinite;
+        }
+
+        .box {
+            display: inline-block;
+            width: 75px;
+            height: 75px;
+            margin: 10px;
+            font-size: 2rem;
+            line-height: 100px;
+            text-align: center;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="scroll-container">
+        <div class="scroll-track">
+            <div class="box fb">
+                <img src="../../public/images/icons/social/fb.png" width="75px" alt="">
+            </div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box">5</div>
+            <div class="box">6</div>
+            <div class="box">7</div>
+            <div class="box">8</div>
+            <div class="box">
+                <img src="../../public/images/icons/social/instagram.png" width="75px" alt="">
+            </div>
+            <div class="box">10</div>
+            <div class="box">11</div>
+            <div class="box">12</div>
+            <div class="box">13</div>
+
+            <!-- repeat again for smooth loop -->
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+            <div class="box">5</div>
+            <div class="box">6</div>
+            <div class="box">7</div>
+            <div class="box">8</div>
+            <div class="box">9</div>
+            <div class="box">10</div>
+            <div class="box">11</div>
+            <div class="box">12</div>
+            <div class="box">13</div>
+        </div>
+    </div>
+
+</body>
+
+</html>

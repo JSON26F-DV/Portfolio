@@ -1,17 +1,18 @@
 :root {
     --ivory-mist: #dfdfd6;        
-    --obsidian-night: #202122;   
+    --obsidian-night: #03160e;   
     --abyssal-blue: #112432;      
   
     --emerald-depths: #0d5938;     
     --neon-verdure: #2de193;      
-    --midnight-moss: #03160e;      
-  
+    --midnight-moss: #202122;      
+ 
     --royal-cobalt: #022164;       
     --azure-pulse: #0348dd;       
     --celestial-haze: #9bbafd;     
   
     --gilded-sun: #e0bc2e;        
+    --bg-gradient-jet: linear-gradient(to bottom right, hsla(240, 1%, 18%, 0.251) 0%, hsla(240, 2%, 11%, 0) 100%), hsl(240, 2%, 13%);
 }
 
 *{
