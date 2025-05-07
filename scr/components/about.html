@@ -8,639 +8,321 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/typography.css">
     <link rel="stylesheet" href="../css/anichan.css">
+    <link rel="stylesheet" href="">
     <style>
-        :root {
-            --ivory-mist: #dfdfd6;
-            --obsidian-night: #202122;
-            --abyssal-blue: #112432;
-
-            --emerald-depths: #0d5938;
-            --neon-verdure: #2de193;
-            --midnight-moss: #03160e;
-
-            --royal-cobalt: #022164;
-            --azure-pulse: #0348dd;
-            --celestial-haze: #9bbafd;
-
-            --gilded-sun: #e0bc2e;
-        }
-
-        .davincky {
-            background-image: url(../../public/images/backgrounds/renaissance.png);
-            background-attachment: fixed;
-            background-size: cover;
-        }
-
-        .profile-card {
-            padding: 20px;
-            width: clamp(375px, 100vw, 1440px);
-            height: min(100vh, 720px);
-            display: flex;
-        }
-
-        .JSON26F {
-            display: flex;
-        }
-
-        .profile_header {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            padding: 5px;
-            gap: 5px;
-        }
-
-        .profile_header .profile {
-            flex: 3.1;
-            background-image: url(../../public/images/heroes/profilepic.jpg);
-            background-position: center;
-            background-attachment: cover;
-            background-repeat: repeat;
-            border-radius: 25px;
-            padding: 20px;
-            animation-delay: 0.2s;
-            z-index: 2;
-        }
-
-
-        .profile_header .bio {
-            flex: 1;
+        footer {
+            padding-bottom: 100px;
             display: flex;
             justify-content: center;
-            flex-direction: column;
-            border-radius: 25px;
-            padding: 20px;
-            background-color: var(--midnight-moss);
-            border-top: 2px solid rgba(255, 255, 255, 0.05);
-            border-left: 2px solid rgba(255, 255, 255, 0.05);
-            box-shadow:
-                0 0 20px rgba(255, 255, 255, 0.05),
-                inset 0 0 10px rgba(255, 255, 255, 0.03);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .main_feature {
-            flex: 2;
-            display: grid;
-            padding: 5px;
-            gap: 5px;
-            grid-template-columns: 2fr 1fr;
-            grid-template-rows: repeat(2, 1.5fr) 1.2fr;
-            grid-template-areas:
-                "about about"
-                "skill time"
-                "stack stack";
-        }
-
-        .skills {
-            border: 5px solid #022164;
-            border-radius: 25px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: start;
-            background-color: var(--azure-pulse);
-            position: relative;
-        }
-
-        .skills li {
-            margin-left: 10px;
-            line-height: 23px;
-            list-style: none;
-        }
-
-        .skills span {
-            position: absolute;
-            right: 0;
-        }
-
-        .aboutme {
-            border-radius: 25px;
-            padding: 20px;
-            display: flex;
-            justify-content: flex-end;
-            flex-direction: column;
-            background-color: var(--midnight-moss);
-            animation-delay: 0.5s;
-            opacity: 0;
-            z-index: -1;
-            border-top: 2px solid rgba(255, 255, 255, 0.05);
-            border-left: 2px solid rgba(255, 255, 255, 0.05);
-            box-shadow:
-                0 0 20px rgba(255, 255, 255, 0.05),
-                inset 0 0 10px rgba(255, 255, 255, 0.03);
-            transition: box-shadow 0.3s ease;
-        }
-
-        h3 {
-            margin-bottom: auto;
-            line-height: 35px;
-        }
-
-        .time {
-            border-radius: 25px;
-
-            background-color: var(--midnight-moss);
-
-            grid-area: time;
-            z-index: -1;
-            position: relative;
-            overflow: hidden;
-            border-top: 2px solid rgba(255, 255, 255, 0.05);
-            border-left: 2px solid rgba(255, 255, 255, 0.05);
-            box-shadow:
-                0 0 20px rgba(255, 255, 255, 0.05),
-                inset 0 0 10px rgba(255, 255, 255, 0.03);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .clock {
-            width: 100%;
-            height: 100%;
-            padding: 20px;
-            display: flex;
-            justify-content: flex-end;
-            flex-direction: column;
-            position: absolute;
-            top: 90px;
-            animation-delay: 0.5s;
-
-        }
-
-        .stack {
-            border-radius: 25px;
-            padding: 20px;
-            background-color: var(--midnight-moss);
-            opacity: 0;
-            animation-delay: 0.9s;
-            border-top: 2px solid rgba(255, 255, 255, 0.05);
-            border-left: 2px solid rgba(255, 255, 255, 0.05);
-            box-shadow:
-                0 0 20px rgba(255, 255, 255, 0.05),
-                inset 0 0 10px rgba(255, 255, 255, 0.03);
-            transition: box-shadow 0.3s ease;
-            overflow: hidden;
-        }
-
-
-        .article {
-            flex: 0.8;
-            display: flex;
-            flex-direction: column;
-            padding: 5px;
-            gap: 5px;
-        }
-
-        .article .links {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            border-radius: 25px;
-            padding: 10px;
-            background-color: var(--midnight-moss);
-            border-top: 2px solid rgba(255, 255, 255, 0.05);
-            border-left: 2px solid rgba(255, 255, 255, 0.05);
-            box-shadow:
-                0 0 20px rgba(255, 255, 255, 0.05),
-                inset 0 0 10px rgba(255, 255, 255, 0.03);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .links .main {
-            display: flex;
-            justify-content: space-evenly;
-        }
-
-        .links .secondary {
-            display: flex;
-            justify-content: space-evenly;
-        }
-
-        .links .link {
-            flex: 1;
-            width: 75px;
-            height: 75px;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
             text-align: center;
-            border-radius: 20px;
-        }
-
-        .links .lnk {
-            padding-top: 6px;
-        }
-
-        .links .git {
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .links .fb {
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .article .recent {
-            flex: 1.5;
-            /* border: 2px solid black; */
-            border-radius: 25px;
-            padding: 20px;
-            background-color: var(--midnight-moss);
-            animation-delay: 0.6s;
-            border-top: 2px solid rgba(255, 255, 255, 0.05);
-            border-left: 2px solid rgba(255, 255, 255, 0.05);
-            box-shadow:
-                0 0 20px rgba(255, 255, 255, 0.05),
-                inset 0 0 10px rgba(255, 255, 255, 0.03);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .recent .proj {
-            margin-top: 20px;
-            margin-left: 20px;
-            border-left: 2px solid snow;
-            padding: 20px;
-        }
-
-        .proj span {
-            margin-right: auto;
-        }
-
-        .article .message {
-            flex: 1.5;
-            border-radius: 25px;
-            padding: 20px;
-            background-image: url(../../public/images/heroes/message.jpg);
-            background-position: bottom;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-color: var(--midnight-moss);
-            animation-delay: 0.8s;
-            border-top: 2px solid rgba(255, 255, 255, 0.05);
-            border-left: 2px solid rgba(255, 255, 255, 0.05);
-            box-shadow:
-                0 0 20px rgba(255, 255, 255, 0.05),
-                inset 0 0 10px rgba(255, 255, 255, 0.03);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .jaysus {
-            width: clamp(300px, 100vw, 1440px);
-            height: min(100vh, 720px);
-            background-image: url(../../public/images/backgrounds/papajaysus3.png);
-            background-size: cover;
-            background-repeat: no-repeat;
-            position: sticky;
-            bottom: 0;
-            left: 0;
-            z-index: 1;
-            animation-delay: 1s;
-        }
-
-
-        @media (min-width: 601px) and (max-width: 1024px) {
-            .profile-card {
-                padding: 10px;
-                display: grid;
-                height: 200vh;
-                grid-template-columns: 1fr 1.5fr;
-                grid-template-rows: repeat(2, 1fr);
-                grid-template-areas:
-                    "profile_header article"
-                    "main_feature main_feature";
-            }
-
-            .davincky {
-                display: none;
-            }
-
-            #intersect {
-                display: none;
-            }
-        }
-
-        @media (max-width: 600px) {
-            body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                overflow-x: hidden;
-            }
-
-            .profile-card {
-                padding: 10px;
-                display: flex;
-                flex-direction: column;
-                height: 300vh;
-            }
-
-
-            .JSON26F {
-                flex: 1;
-            }
-
-
-            .stack h3 {
-                margin-bottom: 20px;
-            }
-
-            .davincky {
-                display: none;
-            }
-
-            #intersect {
-                display: none;
-            }
-
-            .bio small {
-                font-size: 16px;
-            }
-
-            .recent h3 {
-                margin-bottom: 40px;
-            }
-
-            .recent .proj {
-                display: flex;
-                flex-direction: column;
-                align-self: center;
-                margin-top: 20px;
-            }
-        }
-
-        .name {
-            display: none;
-            width: 100vw;
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .name #bg-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            z-index: 1;
-        }
-
-
-        .name .jason {
-            width: 100vw;
-            height: 100vh;
-            max-width: none;
-            max-height: none;
-            position: relative;
-            display: flex;
-            z-index: 2;
-            left: 418px;
-            bottom: -185px;
-            animation: slide-up 1s ease-in;
-        }
-
-        .jason pic {
-            position: absolute;
-        }
-
-        @keyframes slide-up {
-            from {
-                transform: translateY(2200px);
-            }
-
-            to {
-                transform: translateY(0);
-            }
-        }
-
-        .scroll-container {
-            display: flex;
-            justify-self: center;
-            align-self: self-end;
-            overflow: hidden;
-            white-space: nowrap;
-            width: 95%;
-            box-sizing: border-box;
-        }
-
-        .scroll-track {
-            display: inline-block;
-            animation: scroll-left 32s linear infinite;
-        }
-
-        .box {
-            display: inline-block;
-            width: 75px;
-            height: 75px;
-            margin: 10px;
-            font-size: 2rem;
-            line-height: 100px;
-            text-align: center;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        @keyframes scroll-left {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
         }
     </style>
 </head>
 
 <body>
-    <div class="profile-card">
-        <div class="JSON26F profile_header" style="grid-area: profile_header;">
-            <div class="profile tilt-in-left-1"></div>
-            <div class="bio">
-                <h3>AKA</h3>
-                <small>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque
-                    magni
-                    obcaecati dolorem
-                    consequuntur
-                    illo animi possimus explicabo veritatis</small>
-            </div>
-        </div>
-        <div class="JSON26F main_feature" style="grid-area: main_feature;">
-            <div class="aboutme slide-top" style="grid-area: about;">
-                <H3>I'M JASON</H3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam ipsam voluptatibus, in at quam
-                    autem, porro ducimus alias quasi illum debitis exercitationem repellendus placeat expedita rem,
-                    obcaecati adipisci ullam quaerat.</p>
-            </div>
-            <div class="skills" style="grid-area: skill;">
-                <h3>Skills</h3>
-                <span><img src="../../public/images/heroes/stars.png" width="75px" alt="star"></span>
-                <li>UI/UX Design</li>
-                <li>Web Design</li>
-                <li>App Design</li>
-                <li>Cyber Security</li>
-                <li>Delulu</li>
-            </div>
-            <div class="time">
-                <div class="clock move-up">
-                    <h3 id="local-time"></h3>
-                    <small>Current local time</small>
+    <header>
+        <header>
+            <div class="navbar">
+                <div class="nav_list">
+                    <div class="nav_link">
+                        <button type="button" onclick="location.href='../../public/index.html#main'"
+                            class="navbar_btn home" id="home">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="35px" viewBox="0 -960 960 960" width="35px"
+                                fill="#e3e3e3">
+                                <path
+                                    d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z" />
+                            </svg>
+                            <span id="circle1" class="circle"></span>
+                        </button>
+                        <div class="navbar_name">Home</div>
+                    </div>
                 </div>
-            </div>
-            <div class="stack slide-bottom" style="grid-area: stack;">
-                <H3>STACK</H3>
-                <div class="scroll-container">
-                    <div class="scroll-track">
-                        <div class="box fb">
-                            <img src="../../public/images/icons/frameworks/html.png" width="75px" alt="">
-                        </div>
-                        <div class="box"><img src="../../public/images/icons/frameworks/css.png" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/js.png" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/github.png" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/git-icon.png" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/bootstrap.png" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/tailwind.svg" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/logo.png" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/gsap.png" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/three-js-icon.svg" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/figma.png" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/photoshop.png" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/premiere-pro.png" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/capcut-icon.png" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/chat.png" width="75px" alt="">
-                        </div>
-                        <div class="box fb">
-                            <img src="../../public/images/icons/frameworks/html.png" width="75px" alt="">
-                        </div>
-                        <div class="box"><img src="../../public/images/icons/frameworks/css.png" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/js.png" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/github.png" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/git-icon.png" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/bootstrap.png" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/tailwind.svg" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/logo.png" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/gsap.png" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/three-js-icon.svg" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/figma.png" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/photoshop.png" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/premiere-pro.png" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/capcut-icon.png" width="75px" alt="">
-                        </div>
-                        <div class="box">
-                            <img src="../../public/images/icons/frameworks/chat.png" width="75px" alt="">
-                        </div>
+                <div class="nav_list">
+                    <div class="nav_link">
+                        <button type="button" onclick="location.href='../../public/index.html#project'"
+                            class="navbar_btn projects" id="projects">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px"
+                                fill="#e3e3e3">
+                                <path
+                                    d="M480-320q-100 0-170-69.5T240-562q0-74 44-139t96.5-114q52.5-49 96-77l43.5-28q0 57 20.5 96t77.5 83q59 46 80.5 85.5T720-562q0 103-70 172.5T480-320ZM160-120l22-65q8-25 29-40t47-15h444q26 0 47 15t29 40l22 65H160Z" />
+                            </svg>
+                            <span id="circle2" class="circle"></span>
+                        </button>
+                        <div class="navbar_name" id="proj">Projects</div>
+                    </div>
+                </div>
+                <div class="nav_list">
+                    <div class="nav_link">
+                        <button type="button" onclick="location.href='../../public/index.html#educ'"
+                            class="navbar_btn resume" id="resume">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px"
+                                fill="#e3e3e3">
+                                <path
+                                    d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520h200L520-800v200Z" />
+                            </svg>
+                            <span class="circle" id="circle3"></span>
+                        </button>
 
+                        <div class="navbar_name" id="res">Resume</div>
+                    </div>
+                </div>
+                <div class="nav_list">
+                    <div class="nav_link active">
+                        <button type="button" class="navbar_btn" id="aboutme"
+                            style="background-color: var(--royal-cobalt);">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px"
+                                fill="#e3e3e3">
+                                <path
+                                    d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z" />
+                            </svg>
+                            <span class="circle" id="circle4"></span>
+                        </button>
+                        <div class="navbar_name" id="meme">About me</div>
+                    </div>
+                </div>
+                <div id="inline"></div>
+                <div class="nav_list">
+                    <div class="nav_link">
+                        <button type="button" onclick="location.href='../../public/index.html#contact'"
+                            class="navbar_btn mmail" id="mmail">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px"
+                                fill="#e3e3e3">
+                                <path
+                                    d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+                            </svg>
+                            <span class="circle" id="circle5"></span>
+                        </button>
+                        <div class="navbar_name" id="mymail">Mail</div>
+                    </div>
+                </div>
+                <div class="nav_list">
+                    <div class="nav_link">
+                        <button type="button" class="navbar_btn" id="group">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px"
+                                fill="#e3e3e3">
+                                <path
+                                    d="M411-480q-28 0-46-21t-13-49l12-72q8-43 40.5-70.5T480-720q44 0 76.5 27.5T597-622l12 72q5 28-13 49t-46 21H411Zm-287 39q-23 1-39.5-9T63-481q-2-9-1-18t5-17q0 1-1-4-2-2-10-24-2-12 3-23t13-19l2-2q2-19 15.5-32t33.5-13q3 0 19 4l3-1q5-5 13-7.5t17-2.5q11 0 19.5 3.5T208-626q1 0 1.5.5t1.5.5q14 1 24.5 8.5T251-596q2 7 1.5 13.5T250-570q0 1 1 4 7 7 11 15.5t4 17.5q0 4-6 21-1 2 0 4l2 16q0 21-17.5 36T202-441h-78Zm676 1q-33 0-56.5-23.5T720-520q0-12 3.5-22.5T733-563l-28-25q-10-8-3.5-20t18.5-12h80q33 0 56.5 23.5T880-540v20q0 33-23.5 56.5T800-440ZM0-240v-63q0-44 44.5-70.5T160-400q13 0 25 .5t23 2.5q-14 20-21 43t-7 49v65H0Zm240 0v-65q0-65 66.5-105T480-450q108 0 174 40t66 105v65H240Zm560-160q72 0 116 26.5t44 70.5v63H780v-65q0-26-6.5-49T754-397q11-2 22.5-2.5t23.5-.5Z" />
+                            </svg>
+                            <span class="circle" id="circle6"></span>
+                        </button>
+                        <div class="span cricle" id="cricle6"></div>
+                        <div class="navbar_name" id="tribute">Friends and Mentors</div>
+                    </div>
+                </div>
+                <div class="nav_list">
+                    <div class="nav_link">
+                        <button type="button" class="navbar_btn" id="reports">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px"
+                                fill="#e3e3e3">
+                                <path
+                                    d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240ZM330-120 120-330v-300l210-210h300l210 210v300L630-120H330Z" />
+                            </svg>
+                            <span class="circle" id="circle7"></span>
+                        </button>
+                        <div class="navbar_name" id="rep">Reports</div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="JSON26F article" style="grid-area: article;">
-            <div class="links">
-                <div class="main">
-                    <div class="link lnk">
-                        <h3>LIN <br>KS:</h3>
-                    </div>
-                    <div class="link git">
-                        <img src="../../public/images/icons/social/git.png" width="70px" alt="git">
-                    </div>
-                    <div class="link fb">
-                        <img src="../../public/images/icons/social/fb.png" width="70px" alt="facebook">
-                    </div>
-                </div>
-                <div class="secondary">
-                    <div class="link ins">
-                        <img src="../../public/images/icons/social/instagram.png" width="70px" alt="facebook">
-                    </div>
-                    <div class="link spt">
-                        <img src="../../public/images/icons/social/spotify.png" width="70px" alt="facebook">
-                    </div>
-                    <div class="link tik">
-                        <img src="../../public/images/icons/social/tiktok.png" width="70px" alt="facebook">
-                    </div>
+        </header>
+    </header>
+    <main>
+        <div class="profile-card">
+            <div class="JSON26F profile_header" style="grid-area: profile_header;">
+                <div class="profile tilt-in-left-1"></div>
+                <div class="bio">
+                    <h3>BACKGROUND</h3>
+                    <small>A visionary in cybersecurity, I lead a team at NASA, pioneering cutting-edge encryption
+                        systems
+                        to protect critical data and safeguard space missions from evolving digital threats.</small>
                 </div>
             </div>
-            <div class="recent slide-left">
-                <h3>PROJECT.</h3>
-                <div class="proj">
-                    <h5>Pixs </h5>
-                    <span><small>2025 - ♾</small></span><br>
-                    <small>Web design</small>
+            <div class="JSON26F main_feature" style="grid-area: main_feature;">
+                <div class="aboutme slide-top" style="grid-area: about;">
+                    <H3>I'M JASON</H3>
+                    <p>I am currently a first-year student taking up Bachelor of
+                        Science in
+                        Information
+                        Technology
+                        at
+                        the National College of Science and Technology. I have a growing interest in technology,
+                        particularly in programming, web development, & information systems.</p>
                 </div>
-            </div>
-            <div class="message slide-left"></div>
-        </div>
-    </div>
+                <div class="skills" style="grid-area: skill;">
+                    <h3>Skills</h3>
+                    <span><img src="../../public/images/heroes/stars.png" width="75px" alt="star"></span>
+                    <li>UI/UX Design</li>
+                    <li>Web Design</li>
+                    <li>App Design</li>
+                    <li>Cyber Security</li>
+                    <li>Delulu</li>
+                </div>
+                <div class="time">
+                    <div class="clock move-up">
+                        <h3 id="local-time"></h3>
+                        <small>Current local time</small>
+                    </div>
+                </div>
+                <div class="stack slide-bottom" style="grid-area: stack;">
+                    <H3>STACK</H3>
+                    <div class="scroll-container">
+                        <div class="scroll-track">
+                            <div class="box fb">
+                                <img src="../../public/images/icons/frameworks/html.png" width="75px" alt="Html">
+                            </div>
+                            <div class="box"><img src="../../public/images/icons/frameworks/css.png" width="75px"
+                                    alt="Css">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/js.png" width="75px" alt="Javascript">
+                            </div>
+                            <div class="box">
+                                <a href="./tribute.html">
+                                    <img src="../../public/images/icons/frameworks/github.png" width="75px"
+                                        alt="Github">
+                                </a>
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/git-icon.png" width="75px" alt="Git">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/bootstrap.png" width="75px"
+                                    alt="Boostrap">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/tailwind.svg" width="75px"
+                                    alt="Tailwind">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/logo.png" width="75px" alt="Unocss">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/gsap.png" width="75px" alt="Gsap">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/threejs.png" width="75px" alt="Threejs">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/blender.png" width="75px" alt="Blender">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/figma.png" width="75px" alt="Figma">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/photoshop.png" width="75px"
+                                    alt="PhotoShop">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/premiere-pro.png" width="75px"
+                                    alt="Premiere">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/chat.png" width="75px" alt="Chatgpt">
+                            </div>
 
-    <section class="davincky">
-        <div class="page-container">
-            <div class="jaysus"></div>
+                            <div class="box fb">
+                                <img src="../../public/images/icons/frameworks/html.png" width="75px" alt="Html">
+                            </div>
+                            <div class="box"><img src="../../public/images/icons/frameworks/css.png" width="75px"
+                                    alt="Css">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/js.png" width="75px" alt="Javascript">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/github.png" width="75px" alt="Github">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/git-icon.png" width="75px" alt="Git">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/bootstrap.png" width="75px"
+                                    alt="Boostrap">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/tailwind.svg" width="75px"
+                                    alt="Tailwind">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/logo.png" width="75px" alt="Unocss">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/gsap.png" width="75px" alt="Gsap">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/threejs.png" width="75px" alt="Threejs">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/blender.png" width="75px" alt="Blender">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/figma.png" width="75px" alt="Figma">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/photoshop.png" width="75px"
+                                    alt="PhotoShop">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/premiere-pro.png" width="75px"
+                                    alt="Premiere">
+                            </div>
+                            <div class="box">
+                                <img src="../../public/images/icons/frameworks/chat.png" width="75px" alt="Chatgpt">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="JSON26F article" style="grid-area: article;">
+                <div class="links">
+                    <div class="main">
+                        <div class="link lnk">
+                            <h3>LIN</h3>
+                            <h3>KS:</h3>
+                        </div>
+                        <div class="link git">
+                            <img src="../../public/images/icons/social/git.png" width="70px" alt="git">
+                        </div>
+                        <div class="link fb">
+                            <img src="../../public/images/icons/social/fb.png" width="70px" alt="facebook">
+                        </div>
+                    </div>
+                    <div class="secondary">
+                        <div class="link ins">
+                            <img src="../../public/images/icons/social/instagram.png" width="70px" alt="facebook">
+                        </div>
+                        <div class="link spt">
+                            <img src="../../public/images/icons/social/spotify.png" width="70px" alt="facebook">
+                        </div>
+                        <div class="link tik">
+                            <img src="../../public/images/icons/social/tiktok.png" width="70px" alt="facebook">
+                        </div>
+                    </div>
+                </div>
+                <div class="recent slide-left">
+                    <h3>PROJECT.</h3>
+                    <div class="proj">
+                        <h5>Pixs </h5>
+                        <small>2025 - ♾</small><br>
+                        <small>Web design</small>
+                    </div>
+                </div>
+                <div class="message slide-left"></div>
+            </div>
         </div>
-        <div class="page-container">
-        </div>
-    </section>
+
+        <section class="davincky">
+            <div class="page-container">
+                <div class="jaysus"></div>
+            </div>
+            <div class="page-container">
+            </div>
+        </section>
+    </main>
 
     <footer>
         <p id="intersect">@</p>
-        <p>Design by JASON</p>
+        <p>Design by Jason Verzosa Begornia</p>
     </footer>
 
     <div class="name">
@@ -674,10 +356,12 @@
             Entries.forEach(en => {
                 if (en.isIntersecting) {
                     document.querySelector(".jaysus").style.backgroundImage = "url('../../public/images/backgrounds/papajaysus.png')";
+                    const navbar = document.querySelector(".navbar");
+
                     const vid = document.querySelector(".name")
 
                     vid.style.display = "flex";
-
+                    navbar.classList.add("hidden-navbar")
                     setTimeout(() => {
                         vid.style.display = "none";
 
@@ -692,6 +376,7 @@
 
                         setTimeout(() => {
                             document.querySelector(".davincky").style.display = "none";
+                            navbar.classList.add("show-navbar")
                         }, 500);
 
                     }, 15000);
@@ -708,7 +393,7 @@
             }
         }, { passive: false });
     </script>
-
+    <script src="../js/app.js"></script>
 </body>
 
 </html>

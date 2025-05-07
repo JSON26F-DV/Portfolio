@@ -3,91 +3,279 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            background: #121212;
-            font-family: sans-serif;
+            height: 300vh;
         }
 
-        .scroll-container {
-            overflow: hidden;
-            white-space: nowrap;
-            width: 100vw;
-            box-sizing: border-box;
-            border-top: 2px solid #444;
-            border-bottom: 2px solid #444;
+        :root {
+            --ivory-mist: #dfdfd6;
+            --obsidian-night: #03160e;
+            --abyssal-blue: #112432;
+
+            --emerald-depths: #0d5938;
+            --neon-verdure: #2de193;
+            --midnight-moss: #202122;
+
+            --royal-cobalt: #022164;
+            --azure-pulse: #0348dd;
+            --celestial-haze: #9bbafd;
+
+            --gilded-sun: #e0bc2e;
+            --bg-gradient-jet: linear-gradient(to bottom right, hsla(240, 1%, 18%, 0.251) 0%, hsla(240, 2%, 11%, 0) 100%), hsl(240, 2%, 13%);
         }
 
-        .scroll-track {
-            display: inline-block;
-            animation: scroll-left 20s linear infinite;
+        /* NAVIGATION */
+
+        .nav-container {
+            width: min(100vw, 1440px);
+            height: min(100vh, 1440px);
+            display: flex;
+            position: fixed;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: red;
+        }
+
+        .navbar {
+            display: flex;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translate(-50%);
+            border: 1px solid rgba(245, 245, 245, 0.233);
+            background: rgba(33, 33, 33, .74);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.068);
+            backdrop-filter: blur(7.5px);
+            -webkit-backdrop-filter: blur(7.5px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
         }
 
         .box {
-            display: inline-block;
-            width: 75px;
-            height: 75px;
-            margin: 10px;
-            font-size: 2rem;
-            line-height: 100px;
-            text-align: center;
-            border-radius: 10px;
-            overflow: hidden;
+            position: relative;
+            width: 58px;
+            height: 60px;
         }
 
-        @keyframes scroll-left {
-            0% {
-                transform: translateX(0);
+        .box.underline::after {
+            content: "";
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translate(-50%);
+            width: 50%;
+            height: 2px;
+            border-radius: 25%;
+            background-color: rgba(255, 255, 255, 0.459);
+        }
+
+        .navbar_btn {
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            left: 5px;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            border: 1px solid rgba(211, 211, 211, 0.575);
+        }
+
+        .navbar_btn:hover {
+            transform: scale(1.1);
+            transition: all 0.5s ease-in-out;
+        }
+
+        .navbar_btn:active {
+            transform: scale(0.95);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .navbar_name {
+            z-index: 0;
+            position: absolute;
+            left: 3px;
+            top: 0;
+            padding: 5px;
+            font-size: 15px;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.103);
+            opacity: 0;
+            flex-wrap: nowrap;
+            white-space: nowrap;
+        }
+
+        .navbar_name#brush {
+            left: -5px;
+        }
+
+        .navbar_name#resume {
+            left: -5px;
+        }
+
+        .navbar_name#mememe {
+            left: -10px;
+        }
+
+        .navbar_btn.home {
+            background-color: red;
+
+        }
+
+        .navbar_btn.projects {
+            background-color: blue;
+        }
+
+        .navbar_btn:hover~.navbar_name {
+            transform: translateY(-45px);
+            transition: all 0.3s ease-in-out;
+            opacity: 1;
+        }
+
+        .circle {
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            pointer-events: none;
+            transition: top 0.05s, left 0.05s;
+            display: none;
+            z-index: -1;
+            animation: bigmama 0.5s ease-in-out forwards;
+        }
+
+        @keyframes bigmama {
+            from {
+                transform: scale(0);
             }
 
-            100% {
-                transform: translateX(-50%);
+            to {
+                transform: scale(7);
             }
+        }
+
+        #circle1 {
+            background-color: var(--neon-verdure);
+        }
+
+        #circle2 {
+            background-color: crimson;
+        }
+
+        .icons {
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 28px;
+            height: 28px;
+            z-index: 10;
         }
     </style>
 </head>
 
 <body>
+    <div class="nav-container">
 
-    <div class="scroll-container">
-        <div class="scroll-track">
-            <div class="box fb">
-                <img src="../../public/images/icons/social/fb.png" width="75px" alt="">
-            </div>
-            <div class="box">2</div>
-            <div class="box">3</div>
-            <div class="box">4</div>
-            <div class="box">5</div>
-            <div class="box">6</div>
-            <div class="box">7</div>
-            <div class="box">8</div>
+        <div class="navbar">
             <div class="box">
-                <img src="../../public/images/icons/social/instagram.png" width="75px" alt="">
+                <button class="navbar_btn " id="home" data-color="var(--neon-verdure)">
+                    <img class="icons" src="../../public/images/icons/navbars/home.svg" alt="home">
+                    <div id="circle1" class="circle"></div>
+                </button>
+                <span class="navbar_name">
+                    home
+                </span>
             </div>
-            <div class="box">10</div>
-            <div class="box">11</div>
-            <div class="box">12</div>
-            <div class="box">13</div>
-
-            <!-- repeat again for smooth loop -->
-            <div class="box">1</div>
-            <div class="box">2</div>
-            <div class="box">3</div>
-            <div class="box">4</div>
-            <div class="box">5</div>
-            <div class="box">6</div>
-            <div class="box">7</div>
-            <div class="box">8</div>
-            <div class="box">9</div>
-            <div class="box">10</div>
-            <div class="box">11</div>
-            <div class="box">12</div>
-            <div class="box">13</div>
+            <div class="box">
+                <span class="navbar_btn " id="projects" data-color="crimson">
+                    <img class="icons " id="brush" src="../../public/images/icons/navbars/brush.svg" alt="brush">
+                    <div id="circle2" class="circle"></div>
+                </span>
+                <span class="navbar_name" id="brush">
+                    Projects
+                </span>
+            </div>
+            <div class="box">
+                <span class="navbar_btn " id="projects" data-color="crimson">
+                    <img class="icons" src="../../public/images/icons/navbars/resume.svg" alt="resume">
+                    <div id="circle2" class="circle"></div>
+                </span>
+                <span class="navbar_name" id="resume">
+                    Resume
+                </span>
+            </div>
+            <div class="box">
+                <span class="navbar_btn " id="projects" data-color="crimson">
+                    <img class="icons" src="../../public/images/icons/navbars/about.svg" alt="aboutme">
+                    <div id="circle2" class="circle"></div>
+                </span>
+                <span class="navbar_name" id="mememe">
+                    About me
+                </span>
+            </div>
         </div>
     </div>
 
+    <section class="page-container"></section>
+    <section class="page-container" style="background-color: wheat;"></section>
+
+    <script>
+        const buttons = document.querySelectorAll('.navbar_btn');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => b.style.backgroundColor = '');
+                const color = btn.getAttribute('data-color');
+                btn.style.backgroundColor = color;
+            });
+        });
+
+        const boxs = document.querySelectorAll(".box")
+        boxs.forEach(box => {
+            box.addEventListener("click", () => {
+                boxs.forEach(el => {
+                    el.classList.remove("underline");
+                });
+                box.classList.add("underline");
+            })
+        });
+    </script>
+
+    <script>
+        function setupFollow(boxId, circleId) {
+            const box = document.getElementById(boxId);
+            const circle = document.getElementById(circleId);
+
+            box.addEventListener('mouseenter', () => {
+                circle.style.display = 'block';
+            });
+
+            box.addEventListener('mouseleave', () => {
+                circle.style.display = 'none';
+            });
+
+            box.addEventListener('mousemove', (e) => {
+                const rect = box.getBoundingClientRect();
+                const x = e.clientX - rect.left - 15;
+                const y = e.clientY - rect.top - 15;
+                circle.style.left = `${x}px`;
+                circle.style.top = `${y}px`;
+            });
+        }
+
+        setupFollow('home', 'circle1');
+        setupFollow('projects', 'circle2');
+    </script>
 </body>
 
 </html>
