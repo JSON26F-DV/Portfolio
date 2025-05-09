@@ -7,38 +7,397 @@
     <title>Document</title>
     <link rel="stylesheet" href="../scr/css/style.css">
     <link rel="stylesheet" href="../scr/css/typography.css">
+    <link rel="stylesheet" href="../scr/css/anichan.css">
     <style>
         html {
             scroll-behavior: auto !important;
             overflow-y: hidden;
         }
 
-        :root {
-            --ivory-mist: #dfdfd6;
-            --obsidian-night: #202122;
-            --abyssal-blue: #112432;
-
-            --emerald-depths: #0d5938;
-            --neon-verdure: #2de193;
-            --midnight-moss: #03160e;
-
-            --royal-cobalt: #022164;
-            --azure-pulse: #0348dd;
-            --celestial-haze: #9bbafd;
-
-            --gilded-sun: #e0bc2e;
+        .page-container {
+            display: flex;
+            flex-direction: row;
+            padding: 20px;
+            gap: 20px;
+            background-color: hsl(240, 2%, 12%);
         }
 
-        .main-section {
-            width: max(90%, 90vh);
-            height: 90%;
+        .user_Information {
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            height: 100%;
+            border: 2px solid hsl(0, 0%, 22%);
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
+            background-color: hsl(240, 2%, 12%);
+        }
+
+        .profile_Account {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 300px;
             display: flex;
             justify-content: center;
-            align-items: start;
-            border: 2px solid black;
+            align-items: center;
         }
 
-        /* NAVIGATION */
+        .profile_picture {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 5px;
+            border: 2px solid hsl(0, 0%, 22%);
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
+            background-color: hsl(240, 2%, 12%);
+            margin-bottom: 10px;
+        }
+
+        .profile_Name {
+            margin-bottom: 15px;
+        }
+
+        .main_header h3 {
+            position: relative;
+            width: max-content;
+            height: 55px;
+            z-index: 1;
+        }
+
+        .main_header h3::after {
+            content: "";
+            position: absolute;
+            width: 75%;
+            height: 5px;
+            bottom: 0;
+            left: 0;
+            border-radius: 25px;
+            background-color: var(--neon-verdure);
+            z-index: 0;
+        }
+
+        .profile_Account .badge {
+            padding: 5px 18px;
+            border: 2px solid hsl(0, 0%, 22%);
+            border-radius: 8px;
+            background-color: hsl(0, 0%, 22%);
+            box-shadow: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
+        }
+
+        .profile_Information {
+            width: 100%;
+            height: 200px;
+            flex-grow: 1;
+        }
+
+        .grape {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            text-align: center;
+            font-size: larger;
+        }
+
+        .main_content {
+            flex-grow: 1;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: 0.4fr 2fr;
+            grid-template-areas:
+                "box1 box1"
+                "box2 box3";
+            border: 2px solid hsl(0, 0%, 22%);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
+            background-color: hsl(240, 2%, 12%);
+        }
+
+        .main_header {
+            display: flex;
+            flex-direction: column;
+            grid-area: box1;
+        }
+
+        .main_header>p {
+            text-indent: 15px;
+            color: hsl(45, 54%, 58%);
+        }
+
+        .main_article.article_header {
+            padding: 0;
+            grid-area: box2;
+        }
+
+        .main_article.article_body {
+            grid-area: box3;
+        }
+
+        .connect {
+            display: grid;
+            flex: 2;
+            grid-template-columns: 1fr 2fr;
+            grid-template-rows: repeat(3, 1fr);
+            padding: 10px 20px;
+            grid-gap: 20px;
+        }
+
+        .credentials {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .credentials p {
+            padding-top: 5px;
+            color: #dfdfd6ab;
+        }
+
+        .credentials small {
+            font-weight: bolder;
+        }
+
+        .credentials.icon {
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff07;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            font-size: 18px;
+            background-color: linear-gradient(to bottom right, hsl(0, 0%, 25%) 0%, hsla(0, 0%, 25%, 0) 50%);
+        }
+
+        .list_Project {
+            display: flex;
+            flex-direction: column;
+            background-color: hsl(240, 2%, 12%);
+            width: 100%;
+            height: 45vh;
+            flex-grow: 1;
+            border: 2px solid hsl(0, 0%, 22%);
+            border-radius: 20px;
+            padding: 15px;
+            margin-top: 5px
+        }
+
+        .pic_container {
+            flex: 3;
+            width: 100%;
+            border-radius: 5px;
+            width: 100%;
+            height: 70%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url(../public/images/backgrounds/project1.png);
+            background-size: cover;
+            background-position: center;
+            border: 2px solid hsl(0, 0%, 22%);
+            box-shadow: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
+            background-color: hsl(240, 2%, 12%);
+            margin-bottom: 9px;
+        }
+
+        .web_badge {
+            margin-top: 5px;
+            width: max-content;
+            padding: 3px 5px;
+            border: 1px solid rgba(255, 255, 255, 0.116);
+            border-radius: 5px;
+            box-shadow: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
+        }
+
+
+        @media (max-width: 600px) {
+
+            .page-container {
+                display: flex;
+                flex-direction: column;
+                padding: 2%;
+                gap: 5px;
+            }
+
+            .user_Information {
+                width: 100%;
+                height: 200px;
+            }
+
+            .main_header>p {
+                margin-top: 10px;
+                color: hsl(45, 54%, 58%);
+            }
+
+            .main_header h3 {
+                position: relative;
+                width: max-content;
+                height: 40px;
+                z-index: 1;
+            }
+
+            .profile_Information {
+                display: none;
+            }
+
+            .profile_Account {
+                height: 10px !important;
+                justify-content: flex-start;
+                position: relative;
+            }
+
+            .profile_Account .badge {
+                padding: 4px 18px;
+                border: 2px solid hsl(0, 0%, 22%);
+                border-radius: 8px;
+                box-shadow: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
+            }
+
+
+            .profile_Account .profile_picture {
+                position: absolute;
+                top: 50px;
+                border-radius: 50%;
+            }
+
+            .profile_Name {
+                font-size: 16px;
+                margin-bottom: 3px;
+            }
+
+            .profile_Name::after {
+                text-align: center;
+                content: " VERZOSA BEGORNIA";
+            }
+
+            .main_header {
+                padding-top: 20px;
+            }
+
+            .main_content {
+                display: grid;
+                padding: 20px;
+                grid-template-columns: 1fr;
+                grid-template-rows: 0.1fr 1fr;
+                grid-template-areas:
+                    "box1"
+                    "box2"
+                    "box3 ";
+            }
+
+            .main_article {
+                margin-top: 10px;
+                padding: 0;
+            }
+
+            .list_Project {
+                height: 35vh;
+            }
+
+            .main_article.article_body {
+                display: none;
+            }
+
+            .resume_Content {
+                display: grid;
+                grid-template-columns: 1fr 1.5fr;
+                grid-template-rows: repeat(4, 1fr);
+                height: 47vh;
+            }
+
+            .resume_About {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                text-align: start;
+                font-size: 12px;
+                padding-top: 12px !important;
+            }
+
+            .resume_Info.line {
+                padding-top: 15px !important;
+            }
+
+            .resume_Info.line::after {
+                height: 30vh !important;
+                top: 63px !important;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 1024px) {
+            .page-container {
+                padding: 1.5%;
+                gap: 10px;
+            }
+
+            .main_content {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 0.1fr repeat(2, 1fr);
+                grid-template-areas:
+                    "box1"
+                    "box2"
+                    "box3 ";
+            }
+        }
+
+        .resume_Info {
+            display: flex;
+            align-items: flex-start;
+            padding-top: 10px;
+            justify-content: center;
+            text-align: start;
+            position: relative;
+        }
+
+        .resume_Info.line {
+            padding-top: 32px;
+        }
+
+        .resume_Info.line::after {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 44vh;
+            top: 80px;
+            background-color: hsla(45, 54%, 58%, 0.336);
+            z-index: 0;
+        }
+
+        .resume_Content {
+            display: grid;
+            grid-template-columns: 0.5fr 2fr;
+            grid-template-rows: repeat(4, 1fr);
+        }
+
+        .article_body {
+            display: grid;
+            grid-template-columns: 0.5fr 2fr;
+            grid-template-rows: repeat(4, 1fr);
+        }
+
+
+        .resume_About {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            text-align: start;
+        }
+
+        .resume_About.tralala {
+            padding-top: 10px;
+            gap: 4px;
+            justify-content: start;
+        }
+
+        .year {
+            color: hsl(45, 54%, 58%);
+        }
     </style>
 </head>
 
@@ -48,7 +407,7 @@
             <div class="nav_list">
                 <div class="nav_link">
                     <button type="button" onclick="location.href='#main'" class="navbar_btn home" id="home">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="35px" viewBox="0 -960 960 960" width="35px"
+                        <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px"
                             fill="#e3e3e3">
                             <path
                                 d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z" />
@@ -148,19 +507,327 @@
             <p id="homie">@</p>
         </section>
         <section class="page-container project" id="project">
-            <h1>project</h1>
-            <p id="paint">@</p>
+            <div class="user_Information">
+                <div class="profile_Account">
+                    <div class="profile_picture"></div>
+                    <h4 class="profile_Name">JASON</h4>
+                    <small class="badge">Web Developer</small>
+                </div>
+                <div class="profile_Information">
+                    <div class="connect">
+                        <div class="credentials icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="hsl(45, 54%, 58%)">
+                                <path
+                                    d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+                            </svg>
+                        </div>
+                        <div class="credentials">
+                            <p>Email</p>
+                            <small>jasonbegornia57@gmail.com</small>
+                        </div>
+                        <div class="credentials icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="hsl(45, 54%, 58%)">
+                                <path
+                                    d="M280-40q-33 0-56.5-23.5T200-120v-720q0-33 23.5-56.5T280-920h400q33 0 56.5 23.5T760-840v720q0 33-23.5 56.5T680-40H280Zm0-200v120h400v-120H280Zm200 100q17 0 28.5-11.5T520-180q0-17-11.5-28.5T480-220q-17 0-28.5 11.5T440-180q0 17 11.5 28.5T480-140ZM280-320h400v-400H280v400Zm0-480h400v-40H280v40Zm0 560v120-120Zm0-560v-40 40Z" />
+                            </svg>
+                        </div>
+                        <div class="credentials">
+                            <p>Phone</p>
+                            <small>+63 9759 642 812</small>
+                        </div>
+                        <div class="credentials icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="hsl(45, 54%, 58%)">
+                                <path
+                                    d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
+                            </svg>
+                        </div>
+
+                        <div class="credentials">
+                            <p>Location</p>
+                            <small>General Trias Cavite.</small>
+                        </div>
+                    </div>
+                    <span class="grape">🍇</span>
+                </div>
+            </div>
+            <div class="main_content">
+                <div class="main_header">
+                    <h3 id="paint">Projects</h3>
+                    <p>ALL</p>
+                </div>
+                <div class="main_article article_header">
+                    <div class="list_Project">
+                        <div class="pic_container"></div>
+                        <h5>PIXS</h5>
+                        <small class="web_badge">web design</small>
+                    </div>
+                </div>
+                <div class="main_article article_body"></div>
+            </div>
         </section>
         <section class="page-container educ" id="educ">
-            <h1>educ</h1>
-            <p id="backg">@</p>
+            <div class="user_Information">
+                <div class="profile_Account">
+                    <div class="profile_picture"></div>
+                    <h4 class="profile_Name">JASON</h4>
+                    <small class="badge">Web Developer</small>
+                </div>
+                <div class="profile_Information">
+                    <div class="connect">
+                        <div class="credentials icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="hsl(45, 54%, 58%)">
+                                <path
+                                    d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+                            </svg>
+                        </div>
+                        <div class="credentials">
+                            <p>Email</p>
+                            <small>jasonbegornia57@gmail.com</small>
+                        </div>
+                        <div class="credentials icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="hsl(45, 54%, 58%)">
+                                <path
+                                    d="M280-40q-33 0-56.5-23.5T200-120v-720q0-33 23.5-56.5T280-920h400q33 0 56.5 23.5T760-840v720q0 33-23.5 56.5T680-40H280Zm0-200v120h400v-120H280Zm200 100q17 0 28.5-11.5T520-180q0-17-11.5-28.5T480-220q-17 0-28.5 11.5T440-180q0 17 11.5 28.5T480-140ZM280-320h400v-400H280v400Zm0-480h400v-40H280v40Zm0 560v120-120Zm0-560v-40 40Z" />
+                            </svg>
+                        </div>
+                        <div class="credentials">
+                            <p>Phone</p>
+                            <small>+63 9759 642 812</small>
+                        </div>
+                        <div class="credentials icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="hsl(45, 54%, 58%)">
+                                <path
+                                    d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
+                            </svg>
+                        </div>
+
+                        <div class="credentials">
+                            <p>Location</p>
+                            <small>General Trias Cavite.</small>
+                        </div>
+                    </div>
+                    <span class="grape">🍇</span>
+                </div>
+            </div>
+            <div class="main_content mybackground">
+                <div class="main_header">
+                    <h3 id="backg">Resume</h3>
+                </div>
+                <div class="main_article resume_Content">
+                    <div class="resume_Info line">
+                        <div class="credentials icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="hsl(45, 54%, 58%)">
+                                <path
+                                    d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="resume_About">
+                        <h4>Education</h4>
+                    </div>
+                    <div class="resume_Info">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="hsl(45, 54%, 58%)">
+                                <path
+                                    d="M480-280q83 0 141.5-58.5T680-480q0-83-58.5-141.5T480-680q-83 0-141.5 58.5T280-480q0 83 58.5 141.5T480-280Zm0 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="resume_About">
+                        <p>National College of Science and Technology</p>
+                        <small class="year">2023 – 2025</small>
+                        <small>Bachelor of Science in Hospitality Management - 140 Emilio Aguinaldo Hwy, Dasmariñas
+                            Cavite</small>
+                    </div>
+                    <div class="resume_Info">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="hsl(45, 54%, 58%)">
+                                <path
+                                    d="M480-280q83 0 141.5-58.5T680-480q0-83-58.5-141.5T480-680q-83 0-141.5 58.5T280-480q0 83 58.5 141.5T480-280Zm0 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="resume_About">
+                        <p>Sure Foundation Incorporated</p>
+                        <small class="year">2021 - 2023</small>
+                        <small>Technical Vocational Livelihood Cookery Strand - Blk 12, Sec. 10, Sunny Brooke
+                            1 Brgy San
+                            Francisco, General trias, Cavite
+                        </small>
+                    </div>
+                    <div class="resume_Info">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="hsl(45, 54%, 58%)">
+                                <path
+                                    d="M480-280q83 0 141.5-58.5T680-480q0-83-58.5-141.5T480-680q-83 0-141.5 58.5T280-480q0 83 58.5 141.5T480-280Zm0 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="resume_About tralala">
+                        <p>High school of art and design</p>
+                        <small class="year">2016 - 2021</small>
+                        <small>8W68+882, General Trias, Cavite.
+                        </small>
+                    </div>
+                </div>
+                <div class="main_article article_body">
+                    <div class="resume_Info line">
+                        <div class="credentials icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="hsl(45, 54%, 58%)">
+                                <path
+                                    d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="resume_About">
+                        <h4>Experience</h4>
+                    </div>
+                    <div class="resume_Info ">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="hsl(45, 54%, 58%)">
+                                <path
+                                    d="M480-280q83 0 141.5-58.5T680-480q0-83-58.5-141.5T480-680q-83 0-141.5 58.5T280-480q0 83 58.5 141.5T480-280Zm0 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="resume_About">
+                        <p>Freelance Web Developer</p>
+                        <small class="year">Present</small>
+                        <small>
+                            Designed and developed responsive websites for small businesses
+                            Used tools such as WordPress, Bootstrap, and GitHub
+                            Communicated with clients to meet specific design and functionality needs
+                        </small><br>
+                    </div>
+                    <div class="resume_Info">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="hsl(45, 54%, 58%)">
+                                <path
+                                    d="M480-280q83 0 141.5-58.5T680-480q0-83-58.5-141.5T480-680q-83 0-141.5 58.5T280-480q0 83 58.5 141.5T480-280Zm0 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="resume_About">
+                        <p>Tralala Tech Solutions</p>
+                        <small class="year">January 2024 – April 2024</small>
+                        <small>
+                            Assisted in creating landing pages using HTML, CSS, and JavaScript
+                            Collaborated with the design team to improve UI/UX
+                            Debugged and optimized code for faster performance
+                        </small>
+                    </div>
+                    <div class="resume_Info">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="hsl(45, 54%, 58%)">
+                                <path
+                                    d="M480-280q83 0 141.5-58.5T680-480q0-83-58.5-141.5T480-680q-83 0-141.5 58.5T280-480q0 83 58.5 141.5T480-280Zm0 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="resume_About">
+                        <p>Independent Risk Management Specialist</p>
+                        <small class="year">January 2023 – March 2024</small>
+                        <small>
+                            Performed high-stakes statistical modeling on casino floors and online platforms.
+                        </small>
+
+                    </div>
+                </div>
+            </div>
+            </div>
         </section>
         <section class="page-container contact" id="contact">
-            <h1>contact</h1>
-            <p id="cont">@</p>
+            <div class="user_Information">
+                <div class="profile_Account">
+                    <div class="profile_picture"></div>
+                    <h4 class="profile_Name">JASON</h4>
+                    <small class="badge">Web Developer</small>
+                </div>
+                <div class="profile_Information">
+                    <div class="connect">
+                        <div class="credentials icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="hsl(45, 54%, 58%)">
+                                <path
+                                    d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+                            </svg>
+                        </div>
+                        <div class="credentials">
+                            <p>Email</p>
+                            <small>jasonbegornia57@gmail.com</small>
+                        </div>
+                        <div class="credentials icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="hsl(45, 54%, 58%)">
+                                <path
+                                    d="M280-40q-33 0-56.5-23.5T200-120v-720q0-33 23.5-56.5T280-920h400q33 0 56.5 23.5T760-840v720q0 33-23.5 56.5T680-40H280Zm0-200v120h400v-120H280Zm200 100q17 0 28.5-11.5T520-180q0-17-11.5-28.5T480-220q-17 0-28.5 11.5T440-180q0 17 11.5 28.5T480-140ZM280-320h400v-400H280v400Zm0-480h400v-40H280v40Zm0 560v120-120Zm0-560v-40 40Z" />
+                            </svg>
+                        </div>
+                        <div class="credentials">
+                            <p>Phone</p>
+                            <small>+63 9759 642 812</small>
+                        </div>
+                        <div class="credentials icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="hsl(45, 54%, 58%)">
+                                <path
+                                    d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
+                            </svg>
+                        </div>
+
+                        <div class="credentials">
+                            <p>Location</p>
+                            <small>General Trias Cavite.</small>
+                        </div>
+                    </div>
+                    <span class="grape">🍇</span>
+                </div>
+            </div>
+            <div class="main_content mybackground">
+                <div class="main_header">
+                    <h3 id="cont">Contact</h3>
+                </div>
+
+            </div>
         </section>
     </main>
+    <script>
+        function FontsAnimate(element, classFx) {
 
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(classFx);
+                    }
+                })
+            }, {
+                threshold: 1
+            });
+
+            const elements = document.querySelectorAll(element);
+            elements.forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        FontsAnimate(".list_Project", "slide-in-blurred-bottom")
+
+
+    </script>
     <script src="../scr/js/app.js"></script>
 </body>
 

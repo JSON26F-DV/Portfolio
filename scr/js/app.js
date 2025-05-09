@@ -1,6 +1,18 @@
-function setupFollow(boxId, circleId) {
+const targets = [
+  ["home", "circle1"],
+  ["projects", "circle2"],
+  ["resume", "circle3"],
+  ["aboutme", "circle4"],
+  ["mmail", "circle5"],
+  ["group", "circle6"],
+  ["reports", "circle7"],
+];
+
+targets.forEach(([boxId, circleId]) => {
   const box = document.getElementById(boxId);
   const circle = document.getElementById(circleId);
+
+  if (!box || !circle) return;
 
   box.addEventListener("mouseenter", () => {
     circle.style.display = "block";
@@ -12,20 +24,12 @@ function setupFollow(boxId, circleId) {
 
   box.addEventListener("mousemove", (e) => {
     const rect = box.getBoundingClientRect();
-    const x = e.clientX - rect.left - 15;
-    const y = e.clientY - rect.top - 15;
+    const x = e.clientX - rect.left - circle.offsetWidth / 2;
+    const y = e.clientY - rect.top - circle.offsetHeight / 2;
     circle.style.left = `${x}px`;
     circle.style.top = `${y}px`;
   });
-}
-
-setupFollow("home", "circle1");
-setupFollow("projects", "circle2");
-setupFollow("resume", "circle3");
-setupFollow("aboutme", "circle4");
-setupFollow("mmail", "circle5");
-setupFollow("group", "circle6");
-setupFollow("reports", "circle7");
+});
 
 function animate(hello, element) {
   const observer = new IntersectionObserver((entries) => {
@@ -33,7 +37,9 @@ function animate(hello, element) {
       const box1 = document.querySelector(element);
 
       if (entry.isIntersecting) {
-        box1.classList.add("active");
+        setTimeout(() => {
+          box1.classList.add("active");
+        }, 1);
       } else {
         box1.classList.remove("active");
       }

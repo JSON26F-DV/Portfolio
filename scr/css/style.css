@@ -47,6 +47,8 @@ body{
     justify-content: center;
 }
 
+/* Navigation */
+
 .navbar {
     display: flex;
     position: fixed;
@@ -293,7 +295,6 @@ button {
     z-index: 2;
 }
 
-
 .profile_header .bio {
     flex: 1;
     display: flex;
@@ -359,11 +360,9 @@ button {
     animation-delay: 0.5s;
     opacity: 0;
     z-index: -1;
-    border-top: 2px solid rgba(255, 255, 255, 0.05);
-    border-left: 2px solid rgba(255, 255, 255, 0.05);
-    box-shadow:
-        0 0 20px rgba(255, 255, 255, 0.05),
-        inset 0 0 10px rgba(255, 255, 255, 0.03);
+    border: 2px solid hsl(0, 0%, 22%);
+    box-shadow: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
+    background-color: hsl(240, 2%, 12%);
     transition: box-shadow 0.3s ease;
 }
 
@@ -386,11 +385,10 @@ h3 {
     z-index: -1;
     position: relative;
     overflow: hidden;
-    border-top: 2px solid rgba(255, 255, 255, 0.05);
-    border-left: 2px solid rgba(255, 255, 255, 0.05);
-    box-shadow:
-        0 0 20px rgba(255, 255, 255, 0.05),
-        inset 0 0 10px rgba(255, 255, 255, 0.03);
+
+    border: 2px solid hsl(0, 0%, 22%);
+    box-shadow: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
+    background-color: hsl(240, 2%, 12%);
     transition: box-shadow 0.3s ease;
 }
 
@@ -543,80 +541,6 @@ h3 {
 }
 
 
-@media (min-width: 601px) and (max-width: 1024px) {
-    .profile-card {
-        padding: 10px;
-        display: grid;
-        height: 250vh;
-        grid-template-columns: 1fr 1.5fr;
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-areas:
-            "profile_header article"
-            "main_feature main_feature";
-    }
-
-    .davincky {
-        display: none;
-    }
-
-    #intersect {
-        display: none;
-    }
-}
-
-@media (max-width: 600px) {
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow-x: hidden;
-    }
-
-    .profile-card {
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        height: 400vh;
-    }
-
-
-    .JSON26F {
-        flex: 1;
-    }
-
-    .aboutme p {
-        text-indent: 30px;
-        text-align: justify;
-    }
-
-    .stack h3 {
-        margin-bottom: 20px;
-    }
-
-    .davincky {
-        display: none;
-    }
-
-    #intersect {
-        display: none;
-    }
-
-    .bio small {
-        font-size: 16px;
-    }
-
-    .recent h3 {
-        margin-bottom: 40px;
-    }
-
-    .recent .proj {
-        display: flex;
-        flex-direction: column;
-        align-self: center;
-        margin-top: 20px;
-    }
-}
-
 .name {
     display: none;
     width: 100vw;
@@ -711,5 +635,79 @@ h3 {
 
     100% {
         transform: translateX(-50%);
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .profile-card {
+        padding: 10px;
+        display: grid;
+        height: 250vh;
+        grid-template-columns: 1fr 1.5fr;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas:
+            "profile_header article"
+            "main_feature main_feature";
+    }
+
+    .davincky {
+        display: none;
+    }
+
+    #intersect {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-x: hidden;
+    }
+
+    .profile-card {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        height: 400vh;
+    }
+
+
+    .JSON26F {
+        flex: 1;
+    }
+
+    .aboutme p {
+        text-indent: 30px;
+        text-align: justify;
+    }
+
+    .stack h3 {
+        margin-bottom: 20px;
+    }
+
+    .davincky {
+        display: none;
+    }
+
+    #intersect {
+        display: none;
+    }
+
+    .bio small {
+        font-size: 16px;
+    }
+
+    .recent h3 {
+        margin-bottom: 40px;
+    }
+
+    .recent .proj {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        margin-top: 20px;
     }
 }
